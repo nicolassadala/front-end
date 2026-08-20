@@ -136,12 +136,94 @@ img {
 
 /*************   grid-02   *************/
 
+.grid-02 {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); /*auto-fit estica elementos automaticamente(sempre no repeat)*/
+    gap: var(--spacing-md);
+}
+
+.box-2 {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: var(--spacing-sm);
+    border: 1px solid var(--color-light);
+    padding-bottom: var(--spacing-md);
+    border-radius: var(--radius-md);
+
+   /* overflow: hidden; */  
+}
+
+.box-2 img {
+    border-top-left-radius: var(--radius-md); /*arredonda apenas o lado esquerdo da borda*/
+    border-top-right-radius: var(--radius-md);
+}
+
+.box-2 a {
+    background-color: var(--color-dark);
+    color: var(--color-light);
+}
 /************* fim grid-02 *************/
 
 /*************   grid-03   *************/
+
+.grid-03 {
+    display: grid;
+    grid-template-columns: repeat(2 ,1fr);
+    grid-auto-rows: 400px;/*define o tamanho das linhas que são geradas automaticamente no grid*/
+    gap: var(--spacing-md);
+}
+
+.box-03 {
+    border-radius: var(--radius-md);
+    overflow: hidden;
+}
+
+.grid-03 img {
+    height: 100%;
+    object-fit: cover; /* */   
+}
+
+/*quando usar span lembrar dele no responsivo, se nao quebra o layout*/
+.col-2 {
+    grid-column: span 2; /*ocupa 2 colunas*/
+   /* grid-column-start: 1; /*começa na linha 1*/
+   /* grid-column-end: 3; /*encerra na coluna 3*/
+}
+.row-2 {grid-row: span 2;}/*ocupa duas linhas*/
 
 /************* fim grid-03 *************/
 
 /*************   responsivo   *************/
 
+@media(width <= 1024px) {
+
+    .hero h1 {
+        width: 80%;
+    }
+
+    .grid-01 {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    .box-1:last-child {
+        grid-column: span 2;
+    }
+    .grid-03 {
+        grid-template-columns: 1fr;
+    }
+    .col-2 {grid-column: span 1;}
+    .row-2{grid-row: span 1;}
+}
+
+@media(width <= 680px ){
+    .grid-01{
+        grid-template-columns: 1fr;
+    }
+   .box-1:last-child {
+    grid-column: span 1;
+   }
+
+
+}
 /************* fim responsivo *************/
